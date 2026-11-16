@@ -1,0 +1,44 @@
+# Veröffentlicht die Website auf GitHub Pages (Branch gh-pages).
+# Die Dateien wurden über eine API hochgeladen, die nur Text unterstützt. Binärdateien
+# (Video, Bilder, Schriften) liegen deshalb beim ersten Upload als base64-kodiertes tar-Archiv in _upload/.
+# Dieser Workflow stellt sie einmalig als echte Dateien wieder her, committet sie auf main
+# und spiegelt den Stand anschließend auf gh-pages.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Binärdateien aus _upload wiederherstellen
+        run: |
+          if [ -d _upload ]; then
+            # Teile in Reihenfolge zusammensetzen, dekodieren und entpacken
+            cat $(ls _upload/binaries.tar.b64.part* | sort) | base64 -d | tar -xvf -
+            git rm -rq _upload
+            git add -A
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -m "Binärdateien aus Upload wiederhergestellt"
+            git push origin HEAD:main
+          else
+            echo "Keine kodierten Dateien vorhanden."
+          fi
+
+      - name: Stand auf gh-pages veröffentlichen
+        run: git push origin HEAD:gh-pages --force
