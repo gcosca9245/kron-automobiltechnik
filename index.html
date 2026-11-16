@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kron Automobiltechnik – Kfz-Meisterbetrieb für alle Marken</title>
+  <meta name="description" content="Inspektion, Motorinstandsetzung, Karosserie &amp; Lack, Reifen und Diagnose aus einer Hand. Befund mit Fotos und Preis vor jeder Arbeit. Termin online anfragen.">
+  <meta name="theme-color" content="#0A3D62">
+  <meta property="og:title" content="Kron Automobiltechnik">
+  <meta property="og:description" content="Kfz-Meisterbetrieb für alle Marken. Wir reparieren, was andere tauschen.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/media/hero-poster.webp">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Kritische Ressourcen: Schrift und Hero-Poster zuerst laden -->
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/media/hero-poster.webp" as="image" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="preload" href="assets/media/hero-poster-mobile.webp" as="image" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Markiert JS-Verfügbarkeit, damit Reveal-Startzustände nur mit JS greifen (kein unsichtbarer Inhalt ohne JS) -->
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="bg-paper text-ink antialiased">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ============================================================
+       Header: transparent über dem Hero, danach weiß mit Haarlinie
+       ============================================================ -->
+  <header class="site-header" data-header>
+    <div class="wrap flex h-[4.5rem] items-center justify-between gap-6">
+      <a href="#top" class="brand" aria-label="Kron Automobiltechnik – zur Startseite">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name" translate="no">Kron</span>
+        <span class="brand__sub">Automobiltechnik</span>
+      </a>
+
+      <nav class="hidden lg:block" aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#geschichte">Geschichte</a></li>
+          <li><a href="#werkstatt">Warum wir</a></li>
+          <li><a href="#stimmen">Kundenstimmen</a></li>
+          <li><a href="#termin">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+490000000000" class="header-phone hidden xl:inline-flex">0000&nbsp;000&nbsp;00&nbsp;00</a>
+        <a href="#termin" class="btn btn--yellow btn--sm hidden sm:inline-flex">Termin vereinbaren</a>
+        <button class="menu-toggle lg:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü öffnen" data-menu-toggle>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobiles Menü: Vollflächig, Fokus bleibt im Dialog, Esc schließt -->
+  <div class="mobile-menu" id="mobile-menu" data-menu hidden>
+    <nav class="wrap pt-28 pb-10 flex flex-col h-full" aria-label="Mobile Navigation">
+      <ul class="mobile-menu__list">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#geschichte">Geschichte</a></li>
+        <li><a href="#werkstatt">Warum wir</a></li>
+        <li><a href="#stimmen">Kundenstimmen</a></li>
+        <li><a href="#termin">Kontakt</a></li>
+      </ul>
+      <div class="mt-auto space-y-4">
+        <a href="#termin" class="btn btn--yellow w-full justify-center">Termin vereinbaren</a>
+        <a href="tel:+490000000000" class="block text-center text-white/70 text-sm">Telefon 0000&nbsp;000&nbsp;00&nbsp;00</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ============================================================
+         1 · Hero mit Hintergrundvideo
+         Video: Artem Podrez / Pexels (freie Pexels-Lizenz), siehe README
+         ============================================================ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__media" data-hero-media>
+        <video class="hero__video" autoplay muted loop playsinline preload="auto"
+               poster="assets/media/hero-poster.webp" aria-hidden="true" tabindex="-1" data-hero-video
+               width="1600" height="900">
+          <source src="assets/media/hero-mobile.mp4" type="video/mp4" media="(max-width: 767px) and (orientation: portrait)">
+          <source src="assets/media/hero-1600.mp4" type="video/mp4">
+        </video>
+        <!-- Dezente Abdunklung nur für Lesbarkeit der Schrift -->
+        <div class="hero__shade" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__content wrap" data-hero-content>
+        <p class="eyebrow eyebrow--light" data-hero-item>Kfz-Meisterbetrieb für alle Marken</p>
+        <h1 id="hero-title" class="hero__title">
+          <span class="line"><span data-hero-line>Wir reparieren,</span></span>
+          <span class="line"><span data-hero-line>was andere tauschen.</span></span>
+        </h1>
+        <p class="hero__lead" data-hero-item>
+          Inspektion, Motor, Karosserie und Diagnose aus einer Hand. Vor jeder Arbeit erhalten Sie einen Befund mit Fotos und einen klaren Preis – dann entscheiden Sie.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4" data-hero-item>
+          <a href="#termin" class="btn btn--yellow">
+            Termin vereinbaren
+            <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#leistungen" class="link-light">Leistungen ansehen</a>
+        </div>
+      </div>
+
+      <div class="hero__foot wrap" data-hero-item>
+        <ul class="hero__facts" aria-label="Kurzinfo">
+          <li>Seit 1987 in Musterstadt</li>
+          <li>Hybrid &amp; Elektro, HV-qualifiziert</li>
+          <li>Herstellergarantie bleibt erhalten</li>
+        </ul>
+        <button class="video-toggle" type="button" aria-pressed="false" data-video-toggle>
+          <span class="video-toggle__icon" aria-hidden="true"></span>
+          <span data-video-label>Video pausieren</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2 · Leistungen – editoriale Liste statt Karten-Grid
+         ============================================================ -->
+    <section class="section bg-white" id="leistungen" aria-labelledby="leistungen-title">
+      <div class="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-4">
+          <div class="lg:sticky lg:top-32">
+            <p class="eyebrow" data-reveal>Leistungen</p>
+            <h2 id="leistungen-title" class="h2 mt-5" data-reveal>Vom Ölwechsel bis zum Motorschaden.</h2>
+            <p class="body-lg mt-6 max-w-sm text-steel" data-reveal>
+              Wir arbeiten an allen Marken nach Herstellervorgaben, mit Diagnosetechnik auf Vertragswerkstatt-Niveau und Teilen in Erstausrüster-Qualität.
+            </p>
+            <figure class="media-frame mt-10 hidden lg:block" data-reveal>
+              <div class="media-frame__inner aspect-[4/5]">
+                <img src="assets/media/still-lift.webp" width="1100" height="1100" loading="lazy" decoding="async"
+                     alt="Geländewagen auf einer Hebebühne in einer hellen Werkstatthalle" data-parallax>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <ul class="service-list lg:col-span-7 lg:col-start-6" aria-label="Unsere Leistungen">
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M5 22a11 11 0 1 1 22 0"/><path d="M16 22l5.5-6.5"/><circle cx="16" cy="22" r="1.6"/>
+              <path d="M8.6 14.6l1.3 1M16 11v1.7M23.4 14.6l-1.3 1M4 26.5h24"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Inspektion &amp; Wartung</h3>
+              <p class="service__text">Service nach Herstellervorgabe mit Eintrag ins digitale Serviceheft. Ihre Herstellergarantie bleibt bestehen.</p>
+              <p class="service__meta">Festpreis nach Fahrzeugtyp</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Inspektion">Anfragen<span class="sr-only"> – Inspektion &amp; Wartung</span></a>
+          </li>
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="10" y="3.5" width="12" height="10.5" rx="1.2"/><path d="M10 6.8h12M10 9.2h12"/>
+              <circle cx="16" cy="11.8" r="1"/><path d="M16.3 12.8l2.4 8.3"/><circle cx="16" cy="23.5" r="4.6"/><circle cx="18.9" cy="21.6" r="1"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Motorinstandsetzung</h3>
+              <p class="service__text">Zahnriemen, Steuerkette, Zylinderkopf, Turbolader. Bevor wir zu einem Tauschmotor raten, prüfen wir, ob sich die Reparatur lohnt.</p>
+              <p class="service__meta">Mit schriftlichem Befund</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Motor">Anfragen<span class="sr-only"> – Motorinstandsetzung</span></a>
+          </li>
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M3 20.5v-3.1c0-.8.5-1.4 1.2-1.6L9 14.5l3.6-4.1c.5-.6 1.2-.9 2-.9h5.8c.8 0 1.5.3 2 .9l3.4 4.1 2.4.6c.8.2 1.3.9 1.3 1.7v3.6"/>
+              <circle cx="9" cy="21" r="2.5"/><circle cx="23" cy="21" r="2.5"/><path d="M11.5 21h9M3 21h3.5M25.5 21H29M9.2 14.5h16.6"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Karosserie &amp; Lack</h3>
+              <p class="service__text">Unfallinstandsetzung, Smart Repair und Lackierung in der eigenen Kabine. Die Abwicklung mit Ihrer Versicherung übernehmen wir.</p>
+              <p class="service__meta">Farbtonmessung, eigene Lackierkabine</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Karosserie &amp; Lack">Anfragen<span class="sr-only"> – Karosserie &amp; Lack</span></a>
+          </li>
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="11.5"/><circle cx="16" cy="16" r="6.5"/><circle cx="16" cy="16" r="1.6"/>
+              <path d="M16 4.5v2.4M16 25.1v2.4M4.5 16h2.4M25.1 16h2.4M7.9 7.9l1.7 1.7M22.4 22.4l1.7 1.7M7.9 24.1l1.7-1.7M22.4 9.6l1.7-1.7"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Reifen &amp; Räder</h3>
+              <p class="service__text">Wechsel, Wuchten, Achsvermessung und Einlagerung. Ihre Räder lagern gewaschen und geprüft bei uns.</p>
+              <p class="service__meta">Einlagerung, Achsvermessung</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Reifen">Anfragen<span class="sr-only"> – Reifen &amp; Räder</span></a>
+          </li>
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="4" y="6.5" width="24" height="16" rx="1.4"/><path d="M8 15.5h3.6l1.9-4 3 8.2 2.1-5.2H24"/><path d="M12 27h8M16 22.5V27"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Diagnose &amp; Elektronik</h3>
+              <p class="service__text">Fehlerspeicher auslesen, Steuergeräte codieren, Assistenzsysteme kalibrieren – auch an Hybrid- und Elektrofahrzeugen.</p>
+              <p class="service__meta">HV-Qualifikation, ADAS-Kalibrierung</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Diagnose">Anfragen<span class="sr-only"> – Diagnose &amp; Elektronik</span></a>
+          </li>
+          <li class="service" data-reveal>
+            <svg class="service__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="14.5" cy="17.5" r="10"/><circle cx="14.5" cy="17.5" r="3.2"/>
+              <path d="M20.4 5.2a13 13 0 0 1 7.2 7.9l-3.1 1a9.8 9.8 0 0 0-5.4-5.9z"/>
+              <circle cx="14.5" cy="11" r=".6"/><circle cx="20.2" cy="20.8" r=".6"/><circle cx="8.8" cy="20.8" r=".6"/>
+            </svg>
+            <div class="service__body">
+              <h3 class="service__title">Bremsen, Klima &amp; HU</h3>
+              <p class="service__text">Bremsen prüfen und erneuern, Klimaanlage desinfizieren und befüllen. Hauptuntersuchung mit Vorab-Check und Abnahme im Haus.</p>
+              <p class="service__meta">HU/AU an festen Prüftagen</p>
+            </div>
+            <a class="service__cta" href="#termin" data-service="Bremsen, Klima &amp; HU">Anfragen<span class="sr-only"> – Bremsen, Klima &amp; HU</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3 · Geschichte – scrollbasierte Timeline
+         Desktop: Bildspalte bleibt stehen, Kapitel scrollen; gelbe Leitlinie zeigt Fortschritt
+         ============================================================ -->
+    <section class="story" id="geschichte" aria-labelledby="geschichte-title">
+      <div class="wrap">
+        <div class="max-w-2xl">
+          <p class="eyebrow eyebrow--light" data-reveal>Geschichte</p>
+          <h2 id="geschichte-title" class="h2 mt-5 text-white" data-reveal>Eine Werkstatt, die mit ihren Kunden älter geworden ist.</h2>
+        </div>
+
+        <!-- Mobil: ein ruhiges Bild statt der angepinnten Bildspalte -->
+        <figure class="media-frame mt-10 lg:hidden" data-reveal>
+          <div class="media-frame__inner aspect-[4/3] !bg-[#082f4c]">
+            <img src="assets/media/still-hall.webp" width="1400" height="788" loading="lazy" decoding="async"
+                 alt="Werkstatthalle mit angehobenem Fahrzeug und Mechaniker am Motorkran" data-parallax>
+          </div>
+        </figure>
+
+        <div class="story__grid">
+          <!-- Bildspalte (nur Desktop sichtbar und angepinnt) -->
+          <div class="story__visual" aria-hidden="true">
+            <div class="story__frame">
+              <img class="story__img is-active" src="assets/media/still-hall.webp" width="1400" height="788" alt="" loading="lazy" decoding="async" data-story-img>
+              <img class="story__img" src="assets/media/still-lift.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async" data-story-img>
+              <img class="story__img story__img--right" src="assets/media/still-engine.webp" width="1400" height="788" alt="" loading="lazy" decoding="async" data-story-img>
+              <img class="story__img story__img--left" src="assets/media/still-mechanic.webp" width="1400" height="788" alt="" loading="lazy" decoding="async" data-story-img>
+              <img class="story__img story__img--right" src="assets/media/still-detail.webp" width="1400" height="788" alt="" loading="lazy" decoding="async" data-story-img>
+            </div>
+            <p class="story__caption"><span data-story-year>1987</span><span>Bildmaterial: Pexels, Platzhalter</span></p>
+          </div>
+
+          <!-- Kapitel -->
+          <div class="story__chapters" data-story>
+            <div class="progress-track" aria-hidden="true"><span class="progress-track__fill" data-story-progress></span></div>
+            <ol class="chapter-list">
+            <li class="chapter" data-chapter data-year="1987">
+              <p class="chapter__year">1987 · Gründung</p>
+              <h3 class="chapter__title">Zwei Hebebühnen in einer gemieteten Halle.</h3>
+              <p class="chapter__text">Nach der Meisterprüfung eröffnet die Familie Kron eine kleine Werkstatt am Stadtrand. Die ersten Kunden sind Nachbarn, Handwerker und Taxifahrer – Menschen, deren Auto am nächsten Morgen wieder laufen muss.</p>
+            </li>
+            <li class="chapter" data-chapter data-year="1998–2023">
+              <p class="chapter__year">1998 bis 2023 · Meilensteine</p>
+              <h3 class="chapter__title">Gewachsen, ohne die Halle aus den Augen zu verlieren.</h3>
+              <dl class="milestones">
+                <div><dt>1998</dt><dd>Eigene Lackierkabine, Karosseriebau im Haus</dd></div>
+                <div><dt>2009</dt><dd>Umzug in die heutige Halle mit acht Arbeitsplätzen</dd></div>
+                <div><dt>2016</dt><dd>Hochvolt-Qualifikation für Hybrid- und Elektrofahrzeuge</dd></div>
+                <div><dt>2023</dt><dd>Kalibrierstand für Fahrerassistenzsysteme</dd></div>
+              </dl>
+            </li>
+            <li class="chapter" data-chapter data-year="Heute">
+              <p class="chapter__year">Heute · Haltung</p>
+              <h3 class="chapter__title">Reparieren vor Tauschen.</h3>
+              <p class="chapter__text">Nicht jedes Teil, das ein Fehlercode nennt, ist defekt. Wir messen nach, bevor wir bestellen. Das spart Ihnen Geld – und erklärt, warum viele unserer Kunden seit Jahrzehnten kommen.</p>
+            </li>
+            <li class="chapter" data-chapter data-year="Team">
+              <p class="chapter__year">Team</p>
+              <h3 class="chapter__title">14 Menschen, ein fester Ansprechpartner.</h3>
+              <p class="chapter__text">Kfz-Meister, Karosseriebauer, Lackierer, Mechatroniker und drei Auszubildende. Von der Annahme bis zur Abholung sprechen Sie mit derselben Person.</p>
+            </li>
+            <li class="chapter" data-chapter data-year="Qualität">
+              <p class="chapter__year">Qualität</p>
+              <h3 class="chapter__title">Geprüft, dokumentiert, nachvollziehbar.</h3>
+              <p class="chapter__text">Nach sicherheitsrelevanten Arbeiten prüft ein zweiter Mechaniker, danach folgt die Probefahrt. Jedes verbaute Teil steht mit Teilenummer auf Ihrer Rechnung.</p>
+            </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4 · Warum wir – Zusagen in einem Haarlinien-Raster
+         ============================================================ -->
+    <section class="section bg-paper" id="werkstatt" aria-labelledby="werkstatt-title">
+      <div class="wrap">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-8 items-end">
+          <div class="lg:col-span-6">
+            <p class="eyebrow" data-reveal>Warum Kron</p>
+            <h2 id="werkstatt-title" class="h2 mt-5" data-reveal>Was Sie bei uns schriftlich bekommen.</h2>
+          </div>
+          <p class="body-lg text-steel lg:col-span-5 lg:col-start-8" data-reveal>
+            Vertrauen in eine Werkstatt entsteht nicht durch Versprechen, sondern durch Abläufe, die man überprüfen kann.
+          </p>
+        </div>
+
+        <div class="promises" data-reveal-group>
+          <article class="promise" data-reveal>
+            <h3 class="promise__title">Erst der Befund, dann die Arbeit.</h3>
+            <p class="promise__text">Wir rufen an, bevor wir mehr machen als besprochen. Ohne Ihre Freigabe wird nichts eingebaut und nichts berechnet.</p>
+          </article>
+          <article class="promise" data-reveal>
+            <h3 class="promise__title">Fotos statt Fachbegriffe.</h3>
+            <p class="promise__text">Den verschlissenen Bremsbelag oder den undichten Wellendichtring sehen Sie auf Ihrem Handy – mit einer Erklärung in klaren Worten.</p>
+          </article>
+          <article class="promise" data-reveal>
+            <h3 class="promise__title">Mobil bleiben.</h3>
+            <p class="promise__text">Ersatzwagen oder Hol- und Bringservice im Stadtgebiet, nach Verfügbarkeit. Sagen Sie es uns bei der Terminanfrage.</p>
+          </article>
+          <article class="promise" data-reveal>
+            <h3 class="promise__title">Garantie bleibt Garantie.</h3>
+            <p class="promise__text">Wartung nach Herstellervorgaben und Teile in Erstausrüster-Qualität. Ihre Herstellergarantie bleibt vollständig erhalten.</p>
+          </article>
+        </div>
+
+        <figure class="wide-figure" data-reveal>
+          <div class="wide-figure__inner">
+            <img src="assets/media/still-engine.webp" width="1400" height="788" loading="lazy" decoding="async"
+                 alt="Mechaniker prüft mit einem Messgerät Leitungen im Motorraum" data-parallax>
+          </div>
+          <figcaption>Messen statt raten: Jede Diagnose beginnt am Fahrzeug, nicht am Teilekatalog.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5 · Kundenstimmen (Platzhalter bis zur Freigabe echter Bewertungen)
+         ============================================================ -->
+    <section class="section bg-white" id="stimmen" aria-labelledby="stimmen-title">
+      <div class="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div class="lg:col-span-4">
+          <p class="eyebrow" data-reveal>Kundenstimmen</p>
+          <h2 id="stimmen-title" class="h2 mt-5" data-reveal>Was Kunden nach der Abholung sagen.</h2>
+          <p class="note mt-6" data-reveal>Beispieltexte. Sie werden vor dem Livegang durch echte, freigegebene Bewertungen ersetzt.</p>
+        </div>
+
+        <div class="lg:col-span-7 lg:col-start-6">
+          <figure class="quote quote--lead" data-reveal>
+            <blockquote>
+              <p>„Woanders sollte ich einen neuen Turbolader kaufen. Bei Kron war es ein gerissener Ladeluftschlauch für 140&nbsp;Euro. Seitdem fahre ich nirgendwo anders mehr hin.“</p>
+            </blockquote>
+            <figcaption><span>Kundin</span><span>VW Passat Variant · Diagnose</span></figcaption>
+          </figure>
+
+          <div class="quote-pair">
+            <figure class="quote" data-reveal>
+              <blockquote><p>„Termin am Montag, Auto am Dienstagmittag fertig. Die Rechnung war genau so hoch wie am Telefon angekündigt.“</p></blockquote>
+              <figcaption><span>Kunde</span><span>BMW 320d Touring · Inspektion</span></figcaption>
+            </figure>
+            <figure class="quote" data-reveal>
+              <blockquote><p>„Die Fotos vom Unterboden haben mir mehr erklärt als jedes Werkstattgespräch davor.“</p></blockquote>
+              <figcaption><span>Kundin</span><span>Toyota RAV4 Hybrid · HU-Vorbereitung</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6 · Kontakt & Terminbuchung
+         Ohne Backend: Validierung im Browser, danach vorbereitete E-Mail (mailto)
+         ============================================================ -->
+    <section class="contact" id="termin" aria-labelledby="termin-title">
+      <div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-8">
+        <aside class="lg:col-span-4 text-white">
+          <p class="eyebrow eyebrow--light" data-reveal>Kontakt</p>
+          <h2 id="termin-title" class="h2 mt-5 text-white" data-reveal>Termin vereinbaren</h2>
+          <p class="body-lg mt-6 text-white/75 max-w-sm" data-reveal>Beschreiben Sie kurz, was Ihr Auto braucht. Wir melden uns innerhalb eines Werktags mit einem Terminvorschlag.</p>
+
+          <dl class="contact-data" data-reveal>
+            <div><dt>Adresse</dt><dd>Industriestraße 14<br>00000 Musterstadt</dd></div>
+            <div><dt>Telefon</dt><dd><a href="tel:+490000000000">0000 000 00 00</a></dd></div>
+            <div><dt>E-Mail</dt><dd><a href="mailto:termin@kron-automobiltechnik.de">termin@kron-automobiltechnik.de</a></dd></div>
+            <div><dt>Öffnungszeiten</dt><dd>Mo bis Fr 7:30 – 18:00<br>Sa 9:00 – 13:00</dd></div>
+          </dl>
+          <p class="mt-6 text-xs text-white/50" data-reveal>Adresse, Telefon und Zeiten sind Platzhalter.</p>
+        </aside>
+
+        <div class="lg:col-span-7 lg:col-start-6">
+          <div class="form-panel" data-reveal>
+            <form class="booking" novalidate data-booking aria-describedby="form-hint">
+              <p id="form-hint" class="form-hint">Pflichtfelder sind mit * markiert.</p>
+
+              <fieldset class="field-group">
+                <legend class="field-legend">Leistung *</legend>
+                <div class="chips" data-field="service">
+                  <label class="chip"><input type="radio" name="service" value="Inspektion" required><span>Inspektion</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Motor"><span>Motor</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Karosserie &amp; Lack"><span>Karosserie &amp; Lack</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Reifen"><span>Reifen</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Diagnose"><span>Diagnose</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Bremsen, Klima &amp; HU"><span>Bremsen, Klima &amp; HU</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Etwas anderes"><span>Etwas anderes</span></label>
+                </div>
+                <p class="field-error" id="err-service" data-error="service" aria-live="polite"></p>
+              </fieldset>
+
+              <div class="grid gap-x-6 sm:grid-cols-2">
+                <div class="field">
+                  <label for="f-name">Name *</label>
+                  <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Vor- und Nachname…" aria-describedby="err-name">
+                  <p class="field-error" id="err-name" data-error="name" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-phone">Telefon *</label>
+                  <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="z.&nbsp;B. 0171 2345678…" aria-describedby="err-phone">
+                  <p class="field-error" id="err-phone" data-error="phone" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-email">E-Mail</label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="name@beispiel.de…" aria-describedby="err-email">
+                  <p class="field-error" id="err-email" data-error="email" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-car">Fahrzeug *</label>
+                  <input id="f-car" name="car" type="text" autocomplete="off" required placeholder="Marke, Modell, Baujahr…" aria-describedby="err-car">
+                  <p class="field-error" id="err-car" data-error="car" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-date">Wunschtermin *</label>
+                  <input id="f-date" name="date" type="date" required aria-describedby="date-help err-date">
+                  <p class="field-help" id="date-help">Montag bis Samstag</p>
+                  <p class="field-error" id="err-date" data-error="date" aria-live="polite"></p>
+                </div>
+                <fieldset class="field">
+                  <legend class="field-label">Uhrzeit</legend>
+                  <div class="segmented">
+                    <label><input type="radio" name="slot" value="Vormittag"><span>Vormittag</span></label>
+                    <label><input type="radio" name="slot" value="Nachmittag"><span>Nachmittag</span></label>
+                    <label><input type="radio" name="slot" value="Egal" checked><span>Egal</span></label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="field">
+                <label for="f-msg">Was ist aufgefallen?</label>
+                <textarea id="f-msg" name="message" rows="4" autocomplete="off" placeholder="z.&nbsp;B. Geräusch beim Bremsen, Kontrollleuchte, Kilometerstand…"></textarea>
+              </div>
+
+              <div class="field">
+                <label class="check">
+                  <input type="checkbox" name="privacy" required aria-describedby="err-privacy">
+                  <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. *</span>
+                </label>
+                <p class="field-error" id="err-privacy" data-error="privacy" aria-live="polite"></p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
+                <button class="btn btn--yellow" type="submit">
+                  Termin anfragen
+                  <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
+                <p class="text-xs text-steel">Demo-Formular: Es wird nichts automatisch versendet.</p>
+              </div>
+            </form>
+
+            <!-- Bestätigung nach erfolgreicher Prüfung -->
+            <div class="booking-done" data-booking-done hidden tabindex="-1" role="status">
+              <p class="eyebrow">Anfrage vorbereitet</p>
+              <p class="h3 mt-4" data-done-title>Danke.</p>
+              <p class="mt-4 text-steel" data-done-summary></p>
+              <p class="mt-4 text-sm text-steel">Diese Demo-Seite hat keinen Server. Senden Sie die vorbereitete Anfrage mit Ihrem E-Mail-Programm:</p>
+              <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <a class="btn btn--yellow" href="mailto:termin@kron-automobiltechnik.de" data-mailto>Anfrage per E-Mail senden</a>
+                <button class="link-dark" type="button" data-booking-reset>Angaben bearbeiten</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       7 · Footer
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="grid gap-10 md:grid-cols-12 md:gap-8">
+        <div class="md:col-span-5">
+          <a href="#top" class="brand brand--footer" aria-label="Kron Automobiltechnik – nach oben">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name" translate="no">Kron</span>
+            <span class="brand__sub">Automobiltechnik</span>
+          </a>
+          <p class="mt-6 max-w-xs text-sm text-white/60">Kfz-Meisterbetrieb für alle Marken. Inspektion, Motor, Karosserie, Reifen und Diagnose.</p>
+        </div>
+        <div class="md:col-span-3 text-sm">
+          <p class="footer-label">Werkstatt</p>
+          <p class="mt-3 text-white/75">Industriestraße 14<br>00000 Musterstadt</p>
+        </div>
+        <div class="md:col-span-4 text-sm">
+          <p class="footer-label">Kontakt</p>
+          <p class="mt-3"><a class="footer-link" href="tel:+490000000000">0000 000 00 00</a><br><a class="footer-link" href="mailto:termin@kron-automobiltechnik.de">termin@kron-automobiltechnik.de</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-current-year>2026</span> Kron Automobiltechnik. Demo-Website mit fiktiven Inhalten.</p>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li><a class="footer-link" href="impressum.html">Impressum</a></li>
+          <li><a class="footer-link" href="datenschutz.html">Datenschutz</a></li>
+          <li><span class="inline-block py-[.3rem] text-white/55">Video &amp; Fotos: Pexels</span></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
