@@ -1,0 +1,1 @@
+{ "extends": ["html-validate:recommended"], "rules": { "no-autoplay": ["error", { "include": ["audio"] }], "tel-non-breaking": "off" } }
